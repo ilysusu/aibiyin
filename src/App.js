@@ -1,5 +1,4 @@
-import HelloWorld from "@components/HelloWorld";
-import { Route, Routes, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import routes from "./router";
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
       <div className="container">
         {useRoutes(routes)}
       </div>
-      
+
       <div className="footer">footer</div>
     </div>
   );

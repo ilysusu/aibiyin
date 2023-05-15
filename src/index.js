@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter} from "react-router-dom"
+import {Provider} from "react-redux"
+import store from './store';
 
 import App from '@/App';
 import "normalize.css"
@@ -18,7 +20,9 @@ root.render(
   // Suspense 解决组件异步加载时，可能出现的问题
     <Suspense fallback="loading...">
       <BrowserRouter>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </BrowserRouter>
     </Suspense>
   // </React.StrictMode>
