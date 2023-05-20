@@ -10,7 +10,7 @@ function App() {
         <Header />
       </div>
 
-      <div className="container" style={{backgroundColor: 'pink'}}>
+      <div className="container">
         {useRoutes(routes)}
       </div>
 

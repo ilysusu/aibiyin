@@ -14,3 +14,7 @@ ul,
 li {
   list-style: none;
 }
+:root {
+  --primary-color: #ff385c;
+  --secondary-color: #00848A;
+}

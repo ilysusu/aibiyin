@@ -6,7 +6,7 @@ import store from './store';
 
 import App from '@/App';
 import "normalize.css"
-import "./assets/css/index.css"
+import "./assets/css/index.less"
 
 // @ => src: webpack.config.js
 // react默认隐藏了webpack
