@@ -1,7 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import routes from "./router";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Header from "./components/app-header";
+import Footer from "./components/app-footer";
 
 function App() {
   return (

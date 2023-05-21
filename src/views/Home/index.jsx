@@ -1,28 +1,37 @@
-import hyRequest from '@/services'
 import React, { memo, useEffect, useState } from 'react'
+import Banner from "@/views/Home/cpns/Banner";
+import SectionHeader from "@/components/section-header";
+import RoomItem from "@/components/room-item";
+import {HomeWrapper} from "@/views/Home/style";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchHomeDataAction} from "@/store/modules/home";
 
 const Home = memo(() => {
-  // 定义状态
-  const [data, setData] = useState({})
 
-  // 网络请求
+  const {goodPriceInfo} = useSelector(state => ({
+    goodPriceInfo: state.home.goodPriceInfo
+  }))
+  // console.log(goodPriceInfo, '房源信息')
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    console.log(hyRequest);
-    hyRequest.get({url: "/home/highscore"}).then(res => {
-      console.log(res);
-      setData(res)
-    })
-  }, [])
+    dispatch(fetchHomeDataAction())
+  }, [dispatch])
+
   return (
-    <div>
-      <h2>{data.title}</h2>
-      <p>{data.subtitle}</p>
-      <ul>
-        {
-          data.list?.map(({name, id}) => <li key={id}>{name}</li>)
-        }
-      </ul>
-    </div>
+    <HomeWrapper>
+      <Banner />
+      <div className="container">
+        <div className="good-price">
+          <SectionHeader title={goodPriceInfo.title} subtitle={goodPriceInfo?.subtitle} />
+          <ul className="room-list ">
+            {
+              goodPriceInfo.list?.slice(0, 8).map((item) => <RoomItem key={item.id} item={item} />)
+            }
+          </ul>
+        </div>
+      </div>
+    </HomeWrapper>
   )
 })
 
