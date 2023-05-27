@@ -40,7 +40,7 @@ export const RightWrapper = styled.div`
     .panel {
       position: absolute;
       top: 60px;
-      right: 0px;
+      right: 0;
       border: 1px solid #ddd;
       width: 200px;
       background-color: #fff;

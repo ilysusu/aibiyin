@@ -1,32 +1,32 @@
 import React, { memo, useEffect } from 'react'
 import Banner from "@/views/Home/cpns/Banner";
-import SectionHeader from "@/components/section-header";
 import {HomeWrapper} from "@/views/Home/style";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchHomeDataAction} from "@/store/modules/home";
-import SectionRooms from "@/components/section-rooms";
+import HomeSection from "src/views/Home/cpns/Section";
 
 const Home = memo(() => {
-
-  const {goodPriceInfo} = useSelector(state => ({
-    goodPriceInfo: state.home.goodPriceInfo
+  // 从redux中获取房源数据
+  const {goodPriceInfo, highScoreInfo} = useSelector(state => ({
+    goodPriceInfo: state.home.goodPriceInfo,
+    highScoreInfo: state.home.highScoreInfo
   }))
-  // console.log(goodPriceInfo, '房源信息')
-  const dispatch = useDispatch()
+  // console.log(goodPriceInfo, highScoreInfo, '房源信息')
 
+  // 页面加载完成，发送请求
+  const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchHomeDataAction())
   }, [dispatch])
 
   return (
     <HomeWrapper>
+      {/* 轮播图 */}
       <Banner />
+      {/* 房源类容区域 */}
       <div className="container">
-        <div className="good-price">
-          <SectionHeader title={goodPriceInfo?.title} subtitle={goodPriceInfo?.subtitle} />
-          <SectionRooms roomList={goodPriceInfo?.list} />
-
-        </div>
+        <HomeSection infoData={goodPriceInfo} />
+        <HomeSection infoData={highScoreInfo} />
       </div>
     </HomeWrapper>
   )

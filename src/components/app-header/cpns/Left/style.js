@@ -13,6 +13,6 @@ export const LeftWrapper = styled.div`
   .title {
     margin-left: 5px;
     font-size: 20px;
-    font-family: KaiTi;
+    font-family: KaiTi,serif;
   }
 `
