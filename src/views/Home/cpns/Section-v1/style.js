@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const HomeSection = styled.div`
+export const HomeSectionV1 = styled.div`
   margin-top: 30px;
 `

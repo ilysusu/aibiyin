@@ -3,12 +3,13 @@ import {RoomItemWrapper} from "@/components/room-item/style";
 import {Rating} from "@mui/material";
 
 // 每个房间
-const RoomItem = ({item}) => {
-  console.log(item)
-
+const RoomItem = ({item, itemWidth="25%"}) => {
   return (
-    // 从服务器拿颜色动态设置文本颜色
-    <RoomItemWrapper verifycolor={item.verify_info?.text_color || "#39576a"}>
+    // 从服务器拿颜色动态设置文本颜色,和宽度
+    <RoomItemWrapper
+      verifycolor={item.verify_info?.text_color || "#39576a"}
+      itemWidth={itemWidth}
+    >
       {/* inner内部的 */}
       <div className="inner">
         <div className="cover">

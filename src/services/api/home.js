@@ -15,3 +15,11 @@ export function getHomeHeightScoreData() {
     url: '/home/highscore'
   })
 }
+
+
+// 获取折扣 房源数据
+export function getHomeDiscountData() {
+  return hyRequest.get({
+    url: '/home/discount'
+  })
+}

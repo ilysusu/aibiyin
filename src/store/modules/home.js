@@ -9,9 +9,12 @@ export const fetchHomeDataAction = createAsyncThunk("fetchHomeData", async (payl
 
   const res2 = await home.getHomeHeightScoreData()
   // console.log(res2, '高评分 房源数据')
-  store.dispatch(changeHighScoreInfoAction(res2))
+  // store.dispatch(changeHighScoreInfoAction(res2))
 
-  return [res, res2]
+  const  res3 = await home.getHomeDiscountData()
+  console.log(res3, '折扣 房源数据')
+
+  return [res, res2, res3]
 })
 
 const homeSlice = createSlice({
@@ -20,6 +23,7 @@ const homeSlice = createSlice({
     // 房源信息
     goodPriceInfo: {},
     highScoreInfo: {},
+    discountInfo: {}
   },
   reducers: {
     changeGoodPriceInfoAction(state, {payload}) {
@@ -33,7 +37,8 @@ const homeSlice = createSlice({
     builder.addCase(fetchHomeDataAction.fulfilled, (state, {payload}) => {
       // console.log(payload)
       state.goodPriceInfo = payload[0]
-      // state.highScoreInfo = payload[1]
+      state.highScoreInfo = payload[1]
+      state.discountInfo = payload[2]
     })
   }
 
