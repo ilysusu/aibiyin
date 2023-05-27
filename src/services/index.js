@@ -2,4 +2,4 @@ import hyRequest from './request'
 
 
 export default hyRequest
-export * from './api/home'
+export * as home from './api/home'

@@ -22,7 +22,9 @@ module.exports = {
       "@components": path.resolve(__dirname, "src/components"),
       "@utils": path.resolve(__dirname, "src/utils"),
       "@store": path.resolve(__dirname, "src/store"),
-      "@router": path.resolve(__dirname, "src/router")
+      "@router": path.resolve(__dirname, "src/router"),
+      // 把styledComponent 换成这个引擎
+      '@mui/styled-engine': '@mui/styled-engine-sc'
     }
   }
 }

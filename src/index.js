@@ -5,13 +5,14 @@ import {Provider} from "react-redux"
 import store from './store';
 
 import App from '@/App';
+import 'antd/dist/reset.css';
 import "normalize.css"
 import "./assets/css/index.less"
 
 // @ => src: webpack.config.js
 // react默认隐藏了webpack
 
-// 解决方式 craco
+// 解决方式 使用craco
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

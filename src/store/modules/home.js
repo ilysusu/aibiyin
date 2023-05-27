@@ -1,10 +1,10 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-import {getHomeGoodPriceData} from "@/services";
+import {home} from "@/services";
 
 // 创建异步Action
 export const fetchHomeDataAction = createAsyncThunk("fetchHomeData", async () => {
-  const res = await getHomeGoodPriceData()
-  console.log(res)
+  const res = await home.getHomeGoodPriceData()
+  console.log(res, 'resr')
   return res
 })
 

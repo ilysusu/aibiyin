@@ -1,10 +1,10 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { memo, useEffect } from 'react'
 import Banner from "@/views/Home/cpns/Banner";
 import SectionHeader from "@/components/section-header";
-import RoomItem from "@/components/room-item";
 import {HomeWrapper} from "@/views/Home/style";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchHomeDataAction} from "@/store/modules/home";
+import SectionRooms from "@/components/section-rooms";
 
 const Home = memo(() => {
 
@@ -23,12 +23,9 @@ const Home = memo(() => {
       <Banner />
       <div className="container">
         <div className="good-price">
-          <SectionHeader title={goodPriceInfo.title} subtitle={goodPriceInfo?.subtitle} />
-          <ul className="room-list ">
-            {
-              goodPriceInfo.list?.slice(0, 8).map((item) => <RoomItem key={item.id} item={item} />)
-            }
-          </ul>
+          <SectionHeader title={goodPriceInfo?.title} subtitle={goodPriceInfo?.subtitle} />
+          <SectionRooms roomList={goodPriceInfo?.list} />
+
         </div>
       </div>
     </HomeWrapper>
