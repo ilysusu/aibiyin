@@ -1,20 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {HomeSectionV1} from "@/views/Home/cpns/Section-v1/style";
+import {SectionV1Wrapper} from "@/views/Home/cpns/Section-v1/style";
 import SectionHeader from "@/components/section-header";
 import SectionRooms from "@/components/section-rooms";
 
-const Section = ({infoData}) => {
+const SectionV1 = ({infoData}) => {
   return (
-    <HomeSectionV1>
+    <SectionV1Wrapper>
       <SectionHeader title={infoData?.title} subtitle={infoData?.subtitle} />
       <SectionRooms roomList={infoData?.list} />
-    </HomeSectionV1>
+    </SectionV1Wrapper>
   );
 };
 
-HomeSectionV1.propTypes = {
+SectionV1.propTypes = {
   infoData: PropTypes.object
 };
 
-export default Section;
+export default SectionV1;

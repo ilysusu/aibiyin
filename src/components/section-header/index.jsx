@@ -1,6 +1,8 @@
 import React from 'react';
 import {HeaderWrapper} from "@/components/section-header/style";
 
+
+// 封装标题区域 组件
 const SectionHeader = ({title, subtitle}) => {
   return (
     <HeaderWrapper>

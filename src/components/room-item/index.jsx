@@ -8,7 +8,7 @@ const RoomItem = ({item, itemWidth="25%"}) => {
     // 从服务器拿颜色动态设置文本颜色,和宽度
     <RoomItemWrapper
       verifycolor={item.verify_info?.text_color || "#39576a"}
-      itemWidth={itemWidth}
+      itemwidth={itemWidth}
     >
       {/* inner内部的 */}
       <div className="inner">

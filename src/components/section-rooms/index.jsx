@@ -2,8 +2,7 @@ import React from 'react';
 import RoomItem from "@/components/room-item";
 import {RoomsWrapper} from "@/components/section-rooms/style";
 
-
-// 每个房间列表信息
+// 封装每个房源列表信息组件
 const SectionRooms = (props) => {
   const {roomList, itemWidth} = props
 

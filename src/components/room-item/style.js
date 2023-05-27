@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const RoomItemWrapper = styled.div`
   box-sizing: border-box;
-  width: ${props => props.itemWidth};
+  width: ${props => props.itemwidth};
   padding: 8px;
   margin: 8px 0;
   cursor: pointer;
