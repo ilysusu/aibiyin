@@ -3,7 +3,8 @@ import {SectionV2Wrapper} from "@/views/Home/cpns/Section-v2/style";
 import SectionHeader from "@/components/section-header";
 import SectionTabs from "@/components/section-tabs";
 import SectionRooms from "@/components/section-rooms";
-import * as PropsType from "prop-types";
+import PropsType from "prop-types";
+import SectionFooter from "@/components/section-footer";
 
 const SectionV2 = ({infoData}) => {
 
@@ -21,6 +22,7 @@ const SectionV2 = ({infoData}) => {
       <SectionHeader title={infoData.title} subtitle={infoData.subtitle} />
       <SectionTabs tabsName={tabsName} setCurrName={setCurrName} />
       <SectionRooms roomList={infoData?.dest_list?.[currName]} itemWidth="33.33333%" />
+      <SectionFooter name={currName} />
     </SectionV2Wrapper>
   );
 };

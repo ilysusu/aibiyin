@@ -8,10 +8,11 @@ import HomeSectionV2 from "@/views/Home/cpns/Section-v2";
 
 const Home = memo(() => {
   // 从redux中获取房源数据
-  const {goodPriceInfo, highScoreInfo, discountInfo} = useSelector(state => ({
+  const {goodPriceInfo, highScoreInfo, discountInfo, hotplaceInfo} = useSelector(state => ({
     goodPriceInfo: state.home.goodPriceInfo,
     highScoreInfo: state.home.highScoreInfo,
     discountInfo: state.home.discountInfo,
+    hotplaceInfo: state.home.hotplaceInfo
   }))
   // console.log(goodPriceInfo, highScoreInfo, discountInfo, '房源信息')
 
@@ -29,7 +30,12 @@ const Home = memo(() => {
       {/* 房源信息区域 */}
       <div className="container">
         {/* 折扣优惠房源 */}
+        {/* // 通过判断让组件第一次渲染的时候就可以获取到值 */}
         {Object.keys(discountInfo).length > 0 && <HomeSectionV2 infoData={discountInfo} />}
+
+        {/* 精彩之地展示 */}
+        {Object.keys(hotplaceInfo).length > 0 && <HomeSectionV2 infoData={hotplaceInfo} />}
+
         {/* 高性价比房源 */}
         <HomeSectionV1 infoData={goodPriceInfo} />
         {/* 高分好评房源 */}

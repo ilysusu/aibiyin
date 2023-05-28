@@ -7,7 +7,6 @@ export function getHomeGoodPriceData() {
   })
 }
 
-
 // 获取高评分房源数据
 export function getHomeHeightScoreData() {
   return hyRequest.request({
@@ -16,10 +15,16 @@ export function getHomeHeightScoreData() {
   })
 }
 
-
 // 获取折扣 房源数据
 export function getHomeDiscountData() {
   return hyRequest.get({
     url: '/home/discount'
+  })
+}
+
+// 获取好玩地方的数据
+export function getHomeHotplaceData() {
+  return hyRequest.get({
+    url: '/home/hotrecommenddest'
   })
 }
