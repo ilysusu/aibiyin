@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
-
 import {TabsWrapper} from "@/components/section-tabs/style";
+import ScrollView from "@/base-ui/scroll-view";
 
 // 封装城市选项 组件
 const SectionTabs = ({tabsName = [], setCurrName}) => {
@@ -15,17 +15,19 @@ const SectionTabs = ({tabsName = [], setCurrName}) => {
   }
   return (
     <TabsWrapper>
+      <ScrollView>
         {tabsName?.map((item, index) => {
           return (
             <div
               key={index}
-              className={currentIndex === index ? 'active': ''}
+              className={`item ${currentIndex === index ? 'active': ''}`}
               onClick={e => handleClick(item, index)}
             >
               {item}
             </div>
           )
         })}
+      </ScrollView>
     </TabsWrapper>
   );
 };
