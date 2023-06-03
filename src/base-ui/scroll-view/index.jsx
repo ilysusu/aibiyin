@@ -1,7 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import PropTypes from 'prop-types';
 import {ViewWrapper} from "@/base-ui/scroll-view/style";
-import {Button} from "antd";
 import IconArrowLeft from "@/assets/svg/icon-arrow-left";
 import IconArrowRight from "@/assets/svg/icon-arrow-right";
 
@@ -65,10 +63,6 @@ const ScrollView = props => {
       </div>
     </ViewWrapper>
   );
-};
-
-ScrollView.propTypes = {
-
 };
 
 export default ScrollView;

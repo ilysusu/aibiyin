@@ -28,3 +28,17 @@ export function getHomeHotplaceData() {
     url: '/home/hotrecommenddest'
   })
 }
+
+// 获取可能想去的地方数据
+export function getHomeLongForData() {
+  return hyRequest.get({
+    url: '/home/longfor'
+  })
+}
+
+// 品质和设计经过验证的房源
+export function getHomePlusData() {
+  return hyRequest.get({
+    url: "/home/plus"
+  })
+}
