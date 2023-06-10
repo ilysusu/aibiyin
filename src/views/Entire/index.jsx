@@ -9,12 +9,6 @@ import {useDispatch, useSelector} from "react-redux";
 // 查看全部 的页面
 const Entire = memo(() => {
 
-  // 从redux中获取数据
-  const {roomList, totalCount} = useSelector(state => ({
-    roomList: state.entire.roomList,
-    totalCount: state.entire.totalCount,
-  }))
-
   // 发送请求
   const dispatch = useDispatch()
   useEffect(() => {
@@ -25,8 +19,8 @@ const Entire = memo(() => {
   return (
     <EntireWrapper>
       <EntireFilter />
-      <EntireRooms roomList={roomList} totalCount={totalCount} />
-      <EntirePagination totalCount={totalCount} />
+      <EntireRooms />
+      <EntirePagination />
     </EntireWrapper>
   )
 })
