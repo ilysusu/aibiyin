@@ -33,8 +33,7 @@ const Home = memo(() => {
       <HomeBanner />
       {/* 房源信息区域 */}
       <div className="container">
-                          {/* 通过判断让组件第一次渲染的时候就可以获取到值 */}
-        {/* 热门目的地,折扣优惠房源 */}
+        {/* 热门目的地,折扣优惠房源 */}   {/* 通过判断让组件第一次渲染的时候就可以获取到值 */}
         {Object.keys(discountInfo).length > 0 && <HomeSectionV2 infoData={discountInfo} />}
         {/* 精彩之地展示 */}
         {Object.keys(hotplaceInfo).length > 0 && <HomeSectionV2 infoData={hotplaceInfo} />}

@@ -6,9 +6,4 @@ export const HomeWrapper = styled.div`
     margin: 0 auto;
   }
   
-  > div {
-    margin-top: 30px;
-  }
-  
-
 `

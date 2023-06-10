@@ -5,8 +5,7 @@ import entireReducer from "./modules/entire"
 const store = configureStore({
   reducer: {
     home: homeReducer,
-    entire: entireReducer
-    
+    entire: entireReducer,
   }
 })
 
