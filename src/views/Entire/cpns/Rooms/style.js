@@ -5,6 +5,7 @@ export const RoomsWrapper = styled.div`
   .title {
     margin-left: 5px;
     font-size: 22px;
+    font-weight: 600;
     color: #222;
   }
   .room-list {

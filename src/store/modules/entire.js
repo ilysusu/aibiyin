@@ -1,9 +1,13 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {entire} from '@/services'
 
-export const fetchEntireDataAction = createAsyncThunk('fetchEntireData', async (extra, store) => {
+// 获取全部页面房间数据操作
+export const fetchEntireDataAction = createAsyncThunk('fetchEntireData', async (extra=0, store) => {
   console.log(extra, store)
-  // 根据页码获取最新的数据
+  // 0.修改currentPage
+  store.dispatch(changeCurrentPageAction(extra))
+
+  // 1.根据页码获取最新的数据
   const currentPage = store.getState().entire.currentPage
   const res = await entire.getEntireRoomList(currentPage * 20)
   // console.log(res)
@@ -13,7 +17,7 @@ export const fetchEntireDataAction = createAsyncThunk('fetchEntireData', async (
 const entireSlice = createSlice({
   name: "entire",
   initialState: {
-    currentPage: 3, // 当前页码
+    currentPage: 0, // 当前页码
     roomList: [], // 房间列表
     totalCount: 0, // 总数据个数
   },
@@ -26,13 +30,14 @@ const entireSlice = createSlice({
     changeRoomListAction: (state, {payload}) => {
       state.roomList = payload
     },
+    // 更改总计数操作
     changeTotalCountAction: (state, {payload}) => {
       state.totalCount = payload
     }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchEntireDataAction.fulfilled, (state, {payload}) => {
-      // 把最新的数据 保存到state中
+      // 2.把最新的数据 保存到state中
       state.roomList = payload.list
       state.totalCount = payload.totalCount
     })

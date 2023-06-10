@@ -15,8 +15,6 @@ const Entire = memo(() => {
     totalCount: state.entire.totalCount,
   }))
 
-  console.log(roomList)
-
   // 发送请求
   const dispatch = useDispatch()
   useEffect(() => {
@@ -28,7 +26,7 @@ const Entire = memo(() => {
     <EntireWrapper>
       <EntireFilter />
       <EntireRooms roomList={roomList} totalCount={totalCount} />
-      <EntirePagination />
+      <EntirePagination totalCount={totalCount} />
     </EntireWrapper>
   )
 })
