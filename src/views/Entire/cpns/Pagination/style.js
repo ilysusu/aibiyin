@@ -6,7 +6,7 @@ export const PaginationWrapper = styled.div`
   text-align: center;
   .info {
     .desc {
-      margin-top: 10px;
+      margin-top: 20px;
       color: #222;
     }
     .dHKfqt.Mui-selected {

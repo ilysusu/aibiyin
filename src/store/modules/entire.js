@@ -4,7 +4,7 @@ import {entire} from '@/services'
 // 获取全部页面房间数据操作
 export const fetchEntireDataAction = createAsyncThunk('fetchEntireData', async (extra=0, store) => {
   // console.log(extra, store)
-  // 0.修改currentPage
+  // 0.修改当前页码
   store.dispatch(changeCurrentPageAction(extra))
   store.dispatch(changeIsLoadingAction(true))
 

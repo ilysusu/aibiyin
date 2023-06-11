@@ -10,7 +10,41 @@ export const RoomItemWrapper = styled.div`
   
   .inner {
     width: 100%;
+    
+    .swiper {
+      position: relative;
+      cursor: pointer;
+      
+      &:hover {
+        .control {
+          display: flex;
+        }
+      }
+      .control {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        color: #fff;
+        display: none;
+        justify-content: space-between;
+        z-index: 1;
+        .btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 83px;
+          height: 100%;
+          background: linear-gradient(to left, transparent 0%, rgba(0,0,0,0.25) 100%);
+          &.right {
+            background: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 100%);
+          }
+        }
+      }
+    }
   }
+ 
   .cover {
     position: relative;
     box-sizing: border-box;
