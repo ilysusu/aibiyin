@@ -2,10 +2,10 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {entire} from '@/services'
 
 // 获取全部页面房间数据操作
-export const fetchEntireDataAction = createAsyncThunk('fetchEntireData', async (extra=0, store) => {
-  // console.log(extra, store)
+export const fetchEntireDataAction = createAsyncThunk('fetchEntireData', async (page=0, store) => {
+  // console.log(page, store)
   // 0.修改当前页码
-  store.dispatch(changeCurrentPageAction(extra))
+  store.dispatch(changeCurrentPageAction(page))
   store.dispatch(changeIsLoadingAction(true))
 
   // 1.根据页码获取最新的数据
