@@ -15,7 +15,7 @@ const SectionV3 = ({infoData}) => {
         <ScrollView>
           {
             infoData.list.map(item => {
-              return <RoomItem item={item} itemWidth="20%" key={item.id} />
+              return <RoomItem itemData={item} itemWidth="20%" key={item.id} />
             })
           }
         </ScrollView>

@@ -18,7 +18,7 @@ const Rooms = () => {
         {
           roomList.map(item => {
             return (
-              <RoomItem item={item} itemWidth="20%" key={item._id} />
+              <RoomItem itemData={item} itemWidth="20%" key={item._id} />
             )
           })
         }
