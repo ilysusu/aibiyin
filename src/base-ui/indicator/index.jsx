@@ -2,6 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 import {IndicatorWrapper} from "@/base-ui/indicator/style";
 
+// 轮播图下方圆点指示器
 const Indicator = props => {
   const {selectIndex=0} = props
   const contentRef = useRef()

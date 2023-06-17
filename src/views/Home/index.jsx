@@ -18,7 +18,7 @@ const Home = memo(() => {
     longforInfo: state.home.longforInfo,
     plusInfo: state.home.plusInfo,
   }))
-  // console.log(goodPriceInfo, highScoreInfo, discountInfo, '房源信息')
+  // console.log(goodPriceInfo, highScoreInfo, discountInfo, plusInfo, '房源信息')
 
   // 页面加载完成，发送请求
   const dispatch = useDispatch()

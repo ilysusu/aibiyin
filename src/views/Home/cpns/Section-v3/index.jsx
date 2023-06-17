@@ -7,7 +7,6 @@ import ScrollView from "@/base-ui/scroll-view";
 import SectionFooter from "@/components/section-footer";
 
 const SectionV3 = ({infoData}) => {
-
   return (
     <SectionV3Wrapper>
       <SectionHeader title={infoData.title} subtitle={infoData.subtitle} />

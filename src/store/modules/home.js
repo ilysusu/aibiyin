@@ -30,7 +30,7 @@ export const fetchHomeDataAction = createAsyncThunk("fetchHomeData", (payload, s
   })
 
   home.getHomePlusData().then(res => {
-    console.log(res, '品质和设计经过验证的房源')
+    // console.log(res, '品质和设计经过验证的房源')
     store.dispatch(changePlusInfoAction(res))
   })
 

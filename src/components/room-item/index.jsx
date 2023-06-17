@@ -7,13 +7,15 @@ import IconArrowRight from "@/assets/svg/icon-arrow-right";
 import Indicator from "@/base-ui/indicator";
 
 // 每个房间
-const RoomItem = ({itemData, itemWidth="25%"}) => {
+const RoomItem = ({itemData, itemWidth="25%", itemClick}) => {
+  console.log(itemData, 'RoomItemData')
   const [selectIndex, setSelectIndex] = useState(0)
   const [isAutoPlay, setAutoPlay] = useState(false)
   const sliderRef = useRef()
 
   // 切换图片事件处理逻辑
-  const handleBtnClick = (isRight=true) => {
+  const handleBtnClick = (isRight=true, e) => {
+    e.stopPropagation()
     let newIndex; // 最新索引
     if(isRight) {
       newIndex = selectIndex + 1
@@ -30,52 +32,66 @@ const RoomItem = ({itemData, itemWidth="25%"}) => {
     setSelectIndex(newIndex)
   };
 
+  // 点击房间跳转详情页
+  const handlePicClick = () => {
+    itemClick && itemClick(itemData)
+  }
+
+  const pictureElement = (
+    <div className="cover">
+      <img src={itemData.picture_url} alt="" />
+    </div>
+  )
+  const sliderElement = (
+    <div className="swiper" onMouseEnter={e => setAutoPlay(true)} onMouseLeave={e => setAutoPlay(false)}>
+      <div className="control">
+        <div className="btn left" onClick={e => handleBtnClick(false, e)}>
+          <IconArrowLeft width={20} height={20} />
+        </div>
+        <div className="btn right" onClick={e => handleBtnClick(true, e)}>
+          <IconArrowRight width={20} height={20} />
+        </div>
+      </div>
+      <div className="indicator">
+        <Indicator selectIndex={selectIndex}>
+          {
+            itemData.picture_urls?.map((item, index) => {
+              return (
+                <div className="dot-item" key={index}>
+                  <span className={`dot ${selectIndex === index ? 'active' : ''}`}></span>
+                </div>
+              )
+            })
+          }
+        </Indicator>
+      </div>
+      <Carousel autoplay={isAutoPlay} dots={false} ref={sliderRef}>
+        {
+          itemData.picture_urls?.map(pic => {
+            return (
+              <div className="cover" key={itemData.id}>
+                <img src={pic} alt="" />
+              </div>
+            )
+          })
+        }
+      </Carousel>
+    </div>
+  )
+
 
   return (
     // 从服务器拿颜色动态设置文本颜色,和宽度
     <RoomItemWrapper
-      verifycolor={itemData.verify_info?.text_color || "#39576a"}
+      verifycolor={itemData?.verify_info?.text_color || "#39576a"}
       itemwidth={itemWidth}
+      onClick={handlePicClick}
     >
       {/* inner内部的 */}
       <div className="inner">
-        {/* <div className="cover"> */}
-        {/*   <img src={item.picture_url} alt="" /> */}
-        {/* </div> */}
-        <div className="swiper" onMouseEnter={e => setAutoPlay(true)}  onMouseLeave={e => setAutoPlay(false)}>
-          <div className="control">
-            <div className="btn left" onClick={e => handleBtnClick(false)}>
-              <IconArrowLeft width={20} height={20} />
-            </div>
-            <div className="btn right" onClick={e => handleBtnClick(true)}>
-              <IconArrowRight width={20} height={20} />
-            </div>
-          </div>
-          <div className="indicator">
-            <Indicator selectIndex={selectIndex}>
-              {
-                itemData.picture_urls?.map((item, index) => {
-                  return (
-                    <div className="dot-item" key={index}>
-                      <span className={`dot ${selectIndex === index ? 'active' : ''}`}></span>
-                    </div>
-                  )
-                })
-              }
-            </Indicator>
-          </div>
-          <Carousel autoplay={isAutoPlay} dots={false} ref={sliderRef}>
-            {
-              itemData?.picture_urls?.map(pic => {
-                return (
-                  <div className="cover" key={itemData.id}>
-                    <img src={pic} alt="" />
-                  </div>
-                )
-              })
-            }
-          </Carousel>
-        </div>
+        {
+          !itemData?.picture_urls ? pictureElement : sliderElement
+        }
         <div className="desc">
           <span>{itemData.verify_info.messages.join(' · ')}</span>
         </div>
