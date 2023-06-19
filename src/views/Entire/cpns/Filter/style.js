@@ -15,6 +15,7 @@ export const FilterWrapper = styled.div`
     display: flex;
     
     .item {
+      user-select: none;
       margin-left: 10px;
       padding: 0 10px;
       border-radius: 3px;

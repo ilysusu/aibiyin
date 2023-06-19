@@ -50,14 +50,14 @@ export const RightWrapper = styled.div`
       color: var(--text-color);
       z-index: 9;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      .top {
+      .topp {
         padding: 5px 0 10px 0;
       }
       .bottom {
         padding: 10px 0 5px;
         border-top: 1px solid #ddd;
       }
-      .top div, .bottom div {
+      .topp div, .bottom div {
         padding-left: 10px;
         line-height: 40px;
         height: 40px;

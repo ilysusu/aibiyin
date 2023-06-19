@@ -30,14 +30,14 @@ const HeaderRight = memo(() => {
         <IconAvatar />
 
         <div className="panel" hidden={isShow}>
-          <div className="top">
+          <div className="topp">
             <div className='user'>个人中心</div>
             <div className='setting'>设置</div>
           </div>
           <div className="bottom">
             <div className='logout'>退出登录</div>
           </div>
-          
+
         </div>
       </div>
     </RightWrapper>
