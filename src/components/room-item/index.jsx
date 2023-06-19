@@ -8,7 +8,6 @@ import Indicator from "@/base-ui/indicator";
 
 // 每个房间
 const RoomItem = ({itemData, itemWidth="25%", itemClick}) => {
-  console.log(itemData, 'RoomItemData')
   const [selectIndex, setSelectIndex] = useState(0)
   const [isAutoPlay, setAutoPlay] = useState(false)
   const sliderRef = useRef()
@@ -90,7 +89,7 @@ const RoomItem = ({itemData, itemWidth="25%", itemClick}) => {
       {/* inner内部的 */}
       <div className="inner">
         {
-          !itemData?.picture_urls ? pictureElement : sliderElement
+          !itemData.picture_urls ? pictureElement : sliderElement
         }
         <div className="desc">
           <span>{itemData.verify_info.messages.join(' · ')}</span>

@@ -9,7 +9,7 @@ const SectionRooms = (props) => {
   return (
     <RoomsWrapper className="room-list">
       {
-        roomList?.slice(0, 8).map((item) => <RoomItem key={item.id} item={item} itemWidth={itemWidth} />)
+        roomList?.slice(0, 8).map((item) => <RoomItem key={item.id} itemData={item} itemWidth={itemWidth} />)
       }
     </RoomsWrapper>
   );

@@ -4,7 +4,9 @@ import EntireFilter from "src/views/Entire/cpns/Filter";
 import EntireRooms from "src/views/Entire/cpns/Rooms";
 import EntirePagination from "src/views/Entire/cpns/Pagination";
 import {fetchEntireDataAction} from "@/store/modules/entire";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
+import AppHeader from "@/components/app-header";
+import {changeHeaderConfigAction} from "@/store/modules/main";
 
 // 查看全部 的页面
 const Entire = memo(() => {
@@ -13,11 +15,13 @@ const Entire = memo(() => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchEntireDataAction())
+    dispatch(changeHeaderConfigAction({isFixed: true}))
   }, [dispatch])
 
 
   return (
     <EntireWrapper>
+      {/* <AppHeader /> */}
       <EntireFilter />
       <EntireRooms />
       <EntirePagination />

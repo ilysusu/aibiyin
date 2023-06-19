@@ -34,8 +34,7 @@ const DetailPictures = () => {
 
       <Button className="showBtn" onClick={e => setShowPicture(true) }>显示图片</Button>
       {/* 图片浏览器 */}
-      {/* { showPicture && <PictureBrowser pictures={detailInfo?.picture_urls} setShowPicture={setShowPicture} /> } */}
-      { showPicture && <PictureBrowser pictures={detailInfo?.picture_urls} closeClick={e => setShowPicture(false)} /> }
+      { showPicture && <PictureBrowser pictures={detailInfo?.picture_urls} handleClose={e => setShowPicture(false)} /> }
     </PicturesWrapper>
   );
 };

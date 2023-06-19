@@ -9,7 +9,7 @@ import Indicator from "@/base-ui/indicator";
 
 // 图片浏览器
 const PictureBrowser = (props) => {
-  const {pictures, setShowPicture, closeClick} = props
+  const {pictures, handleClose} = props
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isNext, setIsNext] = useState(true)
@@ -35,8 +35,7 @@ const PictureBrowser = (props) => {
   return (
     <BrowserWrapper isNext={isNext} showList={showPicList}>
       <div className="top">
-        {/* <Button className="closeBtn" onClick={e => setShowPicture(false)}>×关闭</Button> */}
-        <Button className="closeBtn" onClick={closeClick && closeClick}>×关闭×</Button>
+        <Button className="closeBtn" onClick={handleClose && handleClose}>关闭</Button>
       </div>
 
       <div className="slider">
@@ -92,27 +91,6 @@ const PictureBrowser = (props) => {
           </Indicator>
         </div>
 
-        {/* { */}
-        {/*   showPicList && ( */}
-        {/*     <div className="list"> */}
-        {/*       <Indicator selectIndex={currentIndex}> */}
-        {/*         { */}
-        {/*           pictures.map((item, index) => { */}
-        {/*             return ( */}
-        {/*               <div */}
-        {/*                 className={`item ${currentIndex === index ? "active" : ""}`} */}
-        {/*                 key={index} */}
-        {/*                 onClick={e => setCurrentIndex(index)} */}
-        {/*               > */}
-        {/*                 <img src={item} alt=""/> */}
-        {/*               </div> */}
-        {/*             ) */}
-        {/*           }) */}
-        {/*         } */}
-        {/*       </Indicator> */}
-        {/*     </div> */}
-        {/*   ) */}
-        {/* } */}
       </div>
     </BrowserWrapper>
   );
@@ -122,7 +100,7 @@ const PictureBrowser = (props) => {
 
 PictureBrowser.propTypes = {
   pictures: PropTypes.array,
-  setShowPicture: PropTypes.func
+  handleClose: PropTypes.func
 }
 
 export default React.memo(PictureBrowser);

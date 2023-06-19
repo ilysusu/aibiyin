@@ -14,17 +14,14 @@ import "./assets/css/index.less"
 
 // 解决方式 使用craco
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
   // Suspense 解决组件异步加载时，可能出现的问题
+  <Provider store={store}>
     <Suspense fallback="loading...">
       <BrowserRouter>
-        <Provider store={store}>
           <App />
-        </Provider>
       </BrowserRouter>
     </Suspense>
-  // </React.StrictMode>
+  </Provider>
 );
