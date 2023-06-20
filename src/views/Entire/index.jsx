@@ -5,7 +5,6 @@ import EntireRooms from "src/views/Entire/cpns/Rooms";
 import EntirePagination from "src/views/Entire/cpns/Pagination";
 import {fetchEntireDataAction} from "@/store/modules/entire";
 import {useDispatch} from "react-redux";
-import AppHeader from "@/components/app-header";
 import {changeHeaderConfigAction} from "@/store/modules/main";
 
 // 查看全部 的页面
@@ -21,7 +20,6 @@ const Entire = memo(() => {
 
   return (
     <EntireWrapper>
-      {/* <AppHeader /> */}
       <EntireFilter />
       <EntireRooms />
       <EntirePagination />

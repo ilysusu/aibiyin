@@ -7,7 +7,6 @@ import HomeSectionV1 from "src/views/Home/cpns/Section-v1";
 import HomeSectionV2 from "@/views/Home/cpns/Section-v2";
 import HomeSectionV3 from "@/views/Home/cpns/Section-v3";
 import LongFor from "@/views/Home/cpns/LongFor";
-import AppHeader from "@/components/app-header";
 import {changeHeaderConfigAction} from "@/store/modules/main";
 
 const Home = memo(() => {
@@ -26,14 +25,12 @@ const Home = memo(() => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchHomeDataAction())
-    dispatch(changeHeaderConfigAction({isFixed: true}))
+    dispatch(changeHeaderConfigAction({isFixed: true, isAlpha: true}))
   }, [dispatch])
 
 
   return (
     <HomeWrapper>
-      {/* header区域 */}
-      {/* <AppHeader /> */}
       {/* 轮播图 */}
       <HomeBanner />
       {/* 房源信息区域 */}
